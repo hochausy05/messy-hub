@@ -30,7 +30,7 @@
   - Deliverables: Clean root layout/page baseline and global styling foundation.
   - Acceptance: App builds; no starter/demo UI remains; no unapproved palette/font/style is invented.
 
-- [ ] **TASK-004 — Create shared site shell and accessibility baseline**
+- [x] **TASK-004 — Create shared site shell and accessibility baseline**
   - Goal: Add reusable page frame, skip-to-content behavior, and shared shell boundaries.
   - Read: `docs/ARCHITECTURE.md` §3-6, `docs/DESIGN_SYSTEM.md` §7, §12.
   - Skills: `vercel-react-best-practices`, `web-design-guidelines`.
