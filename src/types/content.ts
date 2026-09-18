@@ -3,6 +3,16 @@ export type NavigationItem = {
   label: string;
 };
 
+export type HubDestination = {
+  id: string;
+  title: string;
+  slug: string;
+  href: string;
+  description: string;
+  actionLabel: string;
+  index: string;
+};
+
 export type LinkDestination = {
   id: string;
   title: string;

@@ -53,7 +53,7 @@
 
 ## Phase 1 — Home
 
-- [ ] **TASK-007 — Build Home DOM composition**
+- [x] **TASK-007 — Build Home DOM composition**
   - Goal: Create the accessible home information hierarchy and destination entry points before advanced effects.
   - Read: `docs/PRD.md` §8 Home, `docs/DESIGN_SYSTEM.md` §10 Home.
   - Skills: `design`, `ui-styling`, `web-design-guidelines`, `vercel-react-best-practices`.
