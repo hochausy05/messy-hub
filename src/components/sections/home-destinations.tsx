@@ -10,7 +10,7 @@ export function HomeDestinations() {
       className="pt-4"
     >
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
+        <div data-motion="destinations-header" className="flex flex-col gap-2">
           <div className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
             Hub Portals
           </div>

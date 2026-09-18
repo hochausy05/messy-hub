@@ -28,7 +28,10 @@ export function HomeOverview() {
       aria-labelledby="architecture-heading"
       className="pt-4"
     >
-      <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 sm:p-8 lg:p-10">
+      <div
+        data-motion="overview-section"
+        className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 sm:p-8 lg:p-10"
+      >
         <div className="flex flex-col gap-2 border-b border-[var(--border-subtle)] pb-6">
           <div className="text-xs font-mono uppercase tracking-wider text-[var(--text-muted)]">
             System Design
@@ -47,7 +50,11 @@ export function HomeOverview() {
 
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {principles.map((item) => (
-            <div key={item.index} className="flex flex-col gap-2.5">
+            <div
+              key={item.index}
+              data-motion="overview-item"
+              className="flex flex-col gap-2.5"
+            >
               <span className="font-mono text-xs font-semibold text-[var(--border-focus)]">
                 [{item.index}]
               </span>

@@ -6,7 +6,10 @@ export function HomeHero() {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 lg:items-start">
         {/* Main Identity & Statement */}
         <div className="flex flex-col gap-5 lg:col-span-7">
-          <div className="inline-flex max-w-max items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-base)] px-3.5 py-1 text-xs font-mono text-[var(--text-secondary)]">
+          <div
+            data-motion="hero-badge"
+            className="inline-flex max-w-max items-center gap-2 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-base)] px-3.5 py-1 text-xs font-mono text-[var(--text-secondary)]"
+          >
             <span
               className="h-1.5 w-1.5 rounded-full bg-emerald-400"
               aria-hidden="true"
@@ -19,17 +22,26 @@ export function HomeHero() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h1 className="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
+            <h1
+              data-motion="hero-title"
+              className="text-4xl font-extrabold tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl"
+            >
               Messy Hub
             </h1>
-            <p className="max-w-2xl text-lg leading-relaxed text-[var(--text-secondary)] sm:text-xl">
+            <p
+              data-motion="hero-desc"
+              className="max-w-2xl text-lg leading-relaxed text-[var(--text-secondary)] sm:text-xl"
+            >
               An authored digital space connecting experimental code, curated web
               destinations, and personal context. Designed as an evolving workspace
               rather than a static portfolio.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono text-[var(--text-muted)]">
+          <div
+            data-motion="hero-tags"
+            className="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono text-[var(--text-muted)]"
+          >
             <span className="rounded border border-[var(--border-subtle)] bg-[var(--surface-base)] px-2.5 py-1">
               Architecture: DOM-First
             </span>
@@ -44,6 +56,7 @@ export function HomeHero() {
 
         {/* Asymmetric System Frame / Quick Orientation */}
         <aside
+          data-motion="hero-panel"
           aria-label="Hub orientation summary"
           className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 sm:p-7 lg:col-span-5"
         >

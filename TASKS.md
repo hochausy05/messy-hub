@@ -60,7 +60,7 @@
   - Deliverables: DOM-first `/` composition.
   - Acceptance: Home communicates hub purpose and all major destinations without relying on motion or WebGL.
 
-- [ ] **TASK-008 — Add Home motion foundation**
+- [x] **TASK-008 — Add Home motion foundation**
   - Goal: Add purposeful entrance and interaction motion to the Home route.
   - Read: `docs/DESIGN_SYSTEM.md` §8, `docs/ARCHITECTURE.md` §7, §9.
   - Skills: `gsap-core`, `gsap-react`, `gsap-performance`.

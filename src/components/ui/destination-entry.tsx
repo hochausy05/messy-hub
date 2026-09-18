@@ -10,7 +10,10 @@ export function DestinationEntry({ destination }: DestinationEntryProps) {
   const { title, slug, href, description, actionLabel, index } = destination;
 
   return (
-    <article className="group relative flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 transition-colors duration-150 hover:border-[var(--border-default)] hover:bg-[var(--surface-raised)] sm:p-7">
+    <article
+      data-motion="destination-card"
+      className="group relative flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 transition-colors duration-150 hover:border-[var(--border-default)] hover:bg-[var(--surface-raised)] sm:p-7"
+    >
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between font-mono text-xs text-[var(--text-muted)]">
           <span className="font-semibold tracking-wider">{index}</span>
