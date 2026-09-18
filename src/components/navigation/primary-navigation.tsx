@@ -3,12 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const destinations = [
-  { href: "/", label: "Home" },
-  { href: "/links", label: "Links" },
-  { href: "/lab", label: "Lab" },
-  { href: "/profile", label: "Profile" },
-] as const;
+import { primaryNavigationItems } from "@/src/data/navigation";
 
 function normalizePathname(pathname: string) {
   return pathname.replace(/\/$/, "") || "/";
@@ -20,7 +15,7 @@ export function PrimaryNavigation() {
   return (
     <nav aria-label="Primary navigation">
       <ul className="primary-navigation__list">
-        {destinations.map(({ href, label }) => {
+        {primaryNavigationItems.map(({ href, label }) => {
           const isCurrent = pathname === href;
 
           return (

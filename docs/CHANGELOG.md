@@ -25,3 +25,9 @@
 - **Thay đổi:** Thêm điều hướng nội bộ dùng chung cho Home, Links, Lab và Profile; tích hợp vào `SiteShell`; tạo nền tảng tối giản cho ba route MVP và trạng thái `aria-current` theo route hiện tại.
 - **Tệp:** `src/components/navigation/primary-navigation.tsx`, `src/app/layout.tsx`, `src/app/globals.css`, `src/app/links/page.tsx`, `src/app/lab/page.tsx`, `src/app/profile/page.tsx`, `TASKS.md`, `docs/CHANGELOG.md`
 - **Kiểm tra:** `npm run build`, lint các tệp nguồn đã sửa, bốn route trả HTTP 200; điều hướng bằng trình duyệt đến `/links`, kiểm tra trạng thái route hiện tại, và xác nhận skip link vẫn chuyển focus đến `main-content`. Không thêm dependency; `npm run lint` vẫn có lỗi có sẵn trong `.agents/skills/**`.
+
+## 2026-09-18 — TASK-006: Bổ sung hợp đồng content và data
+
+- **Thay đổi:** Thêm các type dùng chung cho navigation, link destination, lab experiment và profile; tập trung dữ liệu navigation; tạo các nguồn dữ liệu links, lab và profile rỗng, không chứa thông tin cá nhân chưa được cung cấp.
+- **Tệp:** `src/types/content.ts`, `src/data/navigation.ts`, `src/content/links/index.ts`, `src/content/lab/index.ts`, `src/content/profile/index.ts`, `src/components/navigation/primary-navigation.tsx`, `TASKS.md`, `docs/CHANGELOG.md`
+- **Kiểm tra:** `npm run build`, lint các tệp nguồn đã sửa, bốn route trả HTTP 200, navigation và `aria-current` được kiểm tra; xác nhận không có URL hoặc dữ liệu cá nhân được phát minh. `npm run lint` vẫn có lỗi có sẵn trong `.agents/skills/**`.

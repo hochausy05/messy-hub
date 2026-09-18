@@ -44,7 +44,7 @@
   - Deliverables: Routable MVP destinations and shared primary navigation.
   - Acceptance: All MVP routes resolve; active/current location is understandable; external-link logic is not mixed into internal nav.
 
-- [ ] **TASK-006 — Add content and data contracts**
+- [x] **TASK-006 — Add content and data contracts**
   - Goal: Define minimal typed structures for navigation, destinations, experiments, and profile content.
   - Read: `docs/ARCHITECTURE.md` §10, §13.
   - Skills: `vercel-react-best-practices`.
