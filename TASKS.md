@@ -23,7 +23,7 @@
 
 ## Phase 0 — Foundation
 
-- [ ] **TASK-003 — Clean starter UI and establish global baseline**
+- [x] **TASK-003 — Clean starter UI and establish global baseline**
   - Goal: Remove starter presentation and prepare the global DOM/CSS baseline without deciding unresolved visual identity.
   - Read: `docs/ARCHITECTURE.md` §6, `docs/DESIGN_SYSTEM.md` §3-6.
   - Skills: `vercel-react-best-practices`, `design-system`.
