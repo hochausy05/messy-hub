@@ -69,3 +69,17 @@ select {
   inset-inline-start: 0;
   z-index: 1;
 }
+
+.primary-navigation__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  list-style: none;
+}
+
+.primary-navigation__list a {
+  display: inline-block;
+  padding: 0.5rem 0.25rem;
+}

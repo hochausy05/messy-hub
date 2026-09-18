@@ -37,7 +37,7 @@
   - Deliverables: Shared layout primitives and accessibility shell.
   - Acceptance: Keyboard flow, focus visibility, and semantic page landmarks work without motion/WebGL.
 
-- [ ] **TASK-005 — Create primary navigation and route foundations**
+- [x] **TASK-005 — Create primary navigation and route foundations**
   - Goal: Establish navigation for `/`, `/links`, `/lab`, and `/profile`.
   - Read: `docs/PRD.md` §7-9, `docs/ARCHITECTURE.md` §5.
   - Skills: `vercel-react-best-practices`, `web-design-guidelines`.
