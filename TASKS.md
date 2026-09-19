@@ -99,7 +99,7 @@
 
 ## Phase 3 — Lab
 
-- [ ] **TASK-013 — Create Lab registry and index**
+- [x] **TASK-013 — Create Lab registry and index**
   - Goal: Establish an extensible experiment catalog and discovery surface.
   - Read: `docs/PRD.md` §8 Lab, `docs/ARCHITECTURE.md` §5, §10-11.
   - Skills: `vercel-react-best-practices`, `design`.

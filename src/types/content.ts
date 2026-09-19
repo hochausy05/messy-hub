@@ -23,14 +23,20 @@ export type LinkDestination = {
   status?: "draft" | "published";
 };
 
+export type LabExperimentCategory = "ui" | "motion" | "three" | "shader";
+
+export type LabExperimentStatus = "active" | "prototype" | "archived" | "planned";
+
 export type LabExperiment = {
   id: string;
   title: string;
   description?: string;
   slug: string;
-  category?: string;
-  status?: "draft" | "published";
+  category: LabExperimentCategory;
+  status: LabExperimentStatus;
+  href?: string;
 };
+
 
 export type ProfileContent = {
   displayName?: string;
