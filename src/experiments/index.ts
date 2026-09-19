@@ -1,11 +1,12 @@
 import type { ComponentType } from "react";
+import dynamic from "next/dynamic";
 
 import type { LabExperiment } from "@/src/types/content";
 
 /**
  * The implementation contract is intentionally small: an experiment owns its
- * component tree and lifecycle. Future entries can wrap a local implementation
- * with next/dynamic here without making the Lab index import it.
+ * component tree and lifecycle. Only the experiment route imports this mapping;
+ * the Lab index reads metadata without importing implementation modules.
  */
 export type LabExperimentComponent = ComponentType;
 
@@ -15,13 +16,15 @@ export type LabExperimentImplementation = {
 
 /**
  * Implementation mapping, separate from authored metadata in src/content/lab.
- * It stays empty until a real experiment is approved and implemented.
  */
 export const labExperimentImplementations: Partial<
   Record<LabExperiment["slug"], LabExperimentImplementation>
 > = {
-  // Example for a future task:
-  // "approved-slug": { component: dynamic(() => import("./approved-slug")) },
+  "kinetic-focus-grid": {
+    component: dynamic(
+      () => import("./kinetic-focus-grid/kinetic-focus-grid"),
+    ),
+  },
 };
 
 export function getExperimentImplementation(

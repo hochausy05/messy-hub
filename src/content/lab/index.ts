@@ -2,10 +2,18 @@ import type { LabExperiment } from "@/src/types/content";
 
 /**
  * Authoritative registry of Lab experiments.
- * TASK-013 establishes discovery/index architecture only.
- * Initial experiments will be registered in TASK-015 and TASK-016.
  */
-export const labExperiments: readonly LabExperiment[] = [];
+export const labExperiments: readonly LabExperiment[] = [
+  {
+    id: "015",
+    title: "Kinetic Focus Grid",
+    slug: "kinetic-focus-grid",
+    category: "motion",
+    status: "active",
+    description:
+      "An interactive motion study exploring focus, hierarchy, and spatial response across a responsive grid.",
+  },
+];
 
 /**
  * Resolve the navigation route for a given experiment record.

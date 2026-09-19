@@ -81,3 +81,9 @@
 - **Kiểm tra:** `npm run build` thành công; ESLint có mục tiêu cho các tệp sửa đổi không có lỗi; `/lab` trả HTTP 200; slug chưa đăng ký đi qua not-found boundary cục bộ với `noindex`; không thêm dependency, không thêm GSAP/Three.js/shader experiment.
 
 
+## 2026-09-19 — TASK-015: Hoàn thiện thử nghiệm Kinetic Focus Grid
+
+- **Thay đổi:** Đăng ký thử nghiệm thật đầu tiên với danh mục `motion`, trạng thái `active`, mở tại `/lab/kinetic-focus-grid` qua registry và kiến trúc TASK-014. Tạo lưới 8 ô DOM thích ứng, phản hồi phân cấp và khoảng cách bằng GSAP khi hover/focus, hỗ trợ giữ/xóa lựa chọn bằng chuột, bàn phím hoặc chạm; dùng thông số chuyển động chung, dọn dẹp ngữ cảnh khi rời route và tắt nạp trước trên thẻ Lab. Không thêm thư viện, Three.js, WebGL hay shader.
+- **Tệp:** `src/experiments/kinetic-focus-grid/kinetic-focus-grid.tsx`, `src/experiments/kinetic-focus-grid/kinetic-focus-grid.module.css`, `src/content/lab/index.ts`, `src/experiments/index.ts`, `src/components/sections/lab/lab-experiment-card.tsx`, `TASKS.md`, `docs/CHANGELOG.md`.
+- **Kiểm tra tự động:** `npm run build` và ESLint có mục tiêu đạt; năm route liên quan trả HTTP 200; mã thử nghiệm chỉ được tải tại route riêng. Kiểm tra trình duyệt đạt với hover, bàn phím, bố cục 375/768/1280px, điều hướng Lab lặp lại và hồi quy Home/Links/Profile; lựa chọn được đặt lại, không ghi nhận lỗi ứng dụng hay hydration.
+- **Chủ sở hữu xác nhận thủ công:** Trên thiết bị cảm ứng ở khoảng 375px, cuộn tự nhiên, không kẹt hover, không tràn ngang và phản hồi lựa chọn tĩnh hoạt động đúng. Với `prefers-reduced-motion: reduce`, loại bỏ xuất hiện so le và chuyển động không gian; bố cục/nội dung hiện ngay, trạng thái focus/lựa chọn tĩnh rõ ràng và thử nghiệm vẫn sử dụng đầy đủ.

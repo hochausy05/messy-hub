@@ -113,7 +113,7 @@
   - Deliverables: Reusable experiment entry/loading/error/fallback pattern.
   - Acceptance: Experiment code/assets load only when needed and clean up when leaving the experiment.
 
-- [ ] **TASK-015 — Build first UI/motion experiment**
+- [x] **TASK-015 — Build first UI/motion experiment**
   - Goal: Validate the Lab pattern with one focused DOM/GSAP interaction experiment.
   - Read: `docs/DESIGN_SYSTEM.md` §7-10.
   - Skills: `ui-styling`, `gsap-core`, `gsap-react`, `gsap-timeline`, `gsap-performance`.

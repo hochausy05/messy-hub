@@ -109,6 +109,7 @@ export function LabExperimentCard({
     return (
       <Link
         href={href}
+        prefetch={false}
         className={`${containerClasses} hover:border-[var(--border-default)] hover:bg-[var(--surface-raised)]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]`}
       >
         {cardContent}
