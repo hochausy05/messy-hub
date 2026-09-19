@@ -13,6 +13,15 @@ export const labExperiments: readonly LabExperiment[] = [
     description:
       "An interactive motion study exploring focus, hierarchy, and spatial response across a responsive grid.",
   },
+  {
+    id: "016",
+    title: "Spatial Node Field",
+    slug: "spatial-node-field",
+    category: "three",
+    status: "active",
+    description:
+      "A three-dimensional study of pointer proximity, connected nodes, and restrained spatial response.",
+  },
 ];
 
 /**

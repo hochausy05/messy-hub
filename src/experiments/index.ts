@@ -1,7 +1,7 @@
 import type { ComponentType } from "react";
-import dynamic from "next/dynamic";
 
 import type { LabExperiment } from "@/src/types/content";
+import { KineticFocusGridEntry, SpatialNodeFieldEntry } from "./experiment-entries";
 
 /**
  * The implementation contract is intentionally small: an experiment owns its
@@ -21,9 +21,10 @@ export const labExperimentImplementations: Partial<
   Record<LabExperiment["slug"], LabExperimentImplementation>
 > = {
   "kinetic-focus-grid": {
-    component: dynamic(
-      () => import("./kinetic-focus-grid/kinetic-focus-grid"),
-    ),
+    component: KineticFocusGridEntry,
+  },
+  "spatial-node-field": {
+    component: SpatialNodeFieldEntry,
   },
 };
 

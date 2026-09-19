@@ -120,7 +120,7 @@
   - Deliverables: One complete motion experiment registered in Lab.
   - Acceptance: Experiment has clear enter/exit behavior, reduced-motion handling, and does not affect other routes.
 
-- [ ] **TASK-016 — Build first Three.js interaction experiment**
+- [x] **TASK-016 — Build first Three.js interaction experiment**
   - Goal: Validate interactive 3D isolation and DOM/WebGL communication inside Lab.
   - Read: `docs/ARCHITECTURE.md` §7-9, `docs/DESIGN_SYSTEM.md` §9.
   - Skills: `threejs-fundamentals`, `threejs-interaction`, `threejs-geometry`, `threejs-materials`, `threejs-lighting`.
