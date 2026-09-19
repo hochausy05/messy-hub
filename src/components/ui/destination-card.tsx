@@ -1,5 +1,18 @@
+"use client";
+
+import { useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import type { LinkDestination } from "@/src/types/content";
+import {
+  MOTION_DURATIONS,
+  MOTION_EASINGS,
+  MOTION_OFFSETS,
+} from "@/src/lib/animation/motion-presets";
+
+gsap.registerPlugin(useGSAP);
 
 type DestinationCardProps = {
   destination: LinkDestination;
@@ -13,12 +26,92 @@ export function DestinationCard({
   const { title, description, href, kind, category } = destination;
   const isExternal = kind === "external";
 
+  const cardRef = useRef<HTMLElement>(null);
+  const arrowRef = useRef<HTMLSpanElement>(null);
+
+  useGSAP(
+    () => {
+      const card = cardRef.current;
+      const arrow = arrowRef.current;
+      if (!card) return;
+
+      const mm = gsap.matchMedia(cardRef);
+
+      // Fine pointer / mouse / keyboard interaction: subtle lift and directional indicator feedback
+      mm.add(
+        "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const onEnter = () => {
+            gsap.to(card, {
+              y: -MOTION_OFFSETS.micro,
+              duration: MOTION_DURATIONS.micro,
+              ease: MOTION_EASINGS.interactive,
+              overwrite: "auto",
+            });
+
+            if (arrow) {
+              gsap.to(arrow, {
+                x: isExternal ? 2 : 3,
+                y: isExternal ? -2 : 0,
+                duration: MOTION_DURATIONS.micro,
+                ease: MOTION_EASINGS.interactive,
+                overwrite: "auto",
+              });
+            }
+          };
+
+          const onLeave = () => {
+            gsap.to(card, {
+              y: 0,
+              duration: MOTION_DURATIONS.micro,
+              ease: MOTION_EASINGS.interactive,
+              overwrite: "auto",
+            });
+
+            if (arrow) {
+              gsap.to(arrow, {
+                x: 0,
+                y: 0,
+                duration: MOTION_DURATIONS.micro,
+                ease: MOTION_EASINGS.interactive,
+                overwrite: "auto",
+              });
+            }
+          };
+
+          card.addEventListener("mouseenter", onEnter);
+          card.addEventListener("mouseleave", onLeave);
+          card.addEventListener("focusin", onEnter);
+          card.addEventListener("focusout", onLeave);
+
+          return () => {
+            card.removeEventListener("mouseenter", onEnter);
+            card.removeEventListener("mouseleave", onLeave);
+            card.removeEventListener("focusin", onEnter);
+            card.removeEventListener("focusout", onLeave);
+          };
+        }
+      );
+
+      // Reduced motion: strip all transforms and ensure clean baseline state
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(card, { clearProps: "all" });
+        if (arrow) {
+          gsap.set(arrow, { clearProps: "all" });
+        }
+      });
+    },
+    { scope: cardRef, dependencies: [isExternal] }
+  );
+
   const linkContent = (
     <>
       <span>{isExternal ? "Visit Destination" : "Explore Route"}</span>
       <span
+        ref={arrowRef}
+        data-motion="card-arrow"
         aria-hidden="true"
-        className="transition-transform duration-150 group-hover:translate-x-0.5"
+        className="inline-block"
       >
         {isExternal ? "↗" : "→"}
       </span>
@@ -33,7 +126,9 @@ export function DestinationCard({
 
   return (
     <article
-      className={`group relative flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 transition-colors duration-150 hover:border-[var(--border-default)] hover:bg-[var(--surface-raised)] sm:p-7 ${className}`}
+      ref={cardRef}
+      data-motion="destination-card"
+      className={`group relative flex flex-col justify-between rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-6 transition-colors duration-150 hover:border-[var(--border-default)] hover:bg-[var(--surface-raised)] active:bg-[var(--surface-overlay)] active:border-[var(--border-default)] sm:p-7 ${className}`}
     >
       <div className="flex flex-col gap-4">
         {/* Destination Metadata Header */}

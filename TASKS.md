@@ -90,7 +90,7 @@
   - Deliverables: Responsive `/links` page and reusable destination-card UI.
   - Acceptance: Cards are understandable without hover; internal/external destinations are visually distinguishable.
 
-- [ ] **TASK-012 — Add Links interaction polish**
+- [x] **TASK-012 — Add Links interaction polish**
   - Goal: Add pointer/focus/touch-safe card motion and preview behavior where justified.
   - Read: `docs/DESIGN_SYSTEM.md` §7-8.
   - Skills: `gsap-core`, `gsap-react`, `gsap-performance`, `web-design-guidelines`.
