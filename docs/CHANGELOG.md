@@ -50,5 +50,8 @@
 - **Tệp:** `package.json`, `package-lock.json`, `src/hooks/use-reduced-motion.ts`, `src/components/three/canvas/home-canvas-fallback.tsx`, `src/components/three/objects/hub-system.tsx`, `src/components/three/scenes/home-scene.tsx`, `src/components/three/canvas/home-canvas.tsx`, `src/components/three/canvas/home-canvas-boundary.tsx`, `src/components/sections/home-hero.tsx`, `src/components/ui/section-frame.tsx`, `TASKS.md`, `docs/CHANGELOG.md`
 - **Kiểm tra:** `npm run build` thành công; `npx eslint src/` không có lỗi; kiểm tra thực tế bằng trình duyệt subagent xác nhận canvas nạp mượt mà, không có lỗi hydration hay console error, canvas dọn dẹp và khởi tạo lại sạch sẽ khi chuyển qua lại giữa các route (`/` -> `/links` -> `/`); bàn phím và skip-link hoạt động bình thường, canvas được đánh dấu trang trí (`aria-hidden="true"`, `tabIndex={-1}`) không cản trở tương tác; không thêm shader hay thư viện ngoài luồng. `npm run lint` còn lỗi có sẵn trong `.agents/skills/**`.
 
+## 2026-09-19 — TASK-010: Hoàn thiện nguồn dữ liệu Links có cấu trúc
 
-
+- **Thay đổi:** Xác nhận nguồn dữ liệu Links có cấu trúc và chuyển dataset sang kiểm tra kiểu tĩnh bằng `satisfies`; giữ dataset external rỗng vì chưa có đích đến được chủ sở hữu phê duyệt.
+- **Tệp:** `src/content/links/index.ts`, `TASKS.md`, `docs/CHANGELOG.md`
+- **Kiểm tra:** Đã kiểm tra build, lint có mục tiêu và xác nhận không thêm dependency, không tạo UI Links hoặc URL chưa được cung cấp.

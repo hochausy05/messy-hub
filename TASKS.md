@@ -76,7 +76,7 @@
 
 ## Phase 2 — Links
 
-- [ ] **TASK-010 — Build structured Links data**
+- [x] **TASK-010 — Build structured Links data**
   - Goal: Create the owner-editable destination dataset for internal/external websites.
   - Read: `docs/PRD.md` §8 Links, `docs/ARCHITECTURE.md` §10.
   - Skills: `vercel-react-best-practices`.
