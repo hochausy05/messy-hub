@@ -83,7 +83,7 @@
   - Deliverables: Typed link records with stable IDs, titles, descriptions, URL/route, category/status as needed.
   - Acceptance: No fake destinations are presented as real; adding a destination does not require page-layout edits.
 
-- [ ] **TASK-011 — Build Links visual directory**
+- [x] **TASK-011 — Build Links visual directory**
   - Goal: Render the destination dataset as a responsive rich-card experience.
   - Read: `docs/DESIGN_SYSTEM.md` §6-7, §10 Links.
   - Skills: `design`, `ui-styling`, `web-design-guidelines`, `vercel-react-best-practices`.

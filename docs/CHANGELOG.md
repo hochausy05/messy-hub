@@ -55,3 +55,10 @@
 - **Thay đổi:** Xác nhận nguồn dữ liệu Links có cấu trúc và chuyển dataset sang kiểm tra kiểu tĩnh bằng `satisfies`; giữ dataset external rỗng vì chưa có đích đến được chủ sở hữu phê duyệt.
 - **Tệp:** `src/content/links/index.ts`, `TASKS.md`, `docs/CHANGELOG.md`
 - **Kiểm tra:** Đã kiểm tra build, lint có mục tiêu và xác nhận không thêm dependency, không tạo UI Links hoặc URL chưa được cung cấp.
+
+## 2026-09-19 — TASK-011: Xây dựng danh mục thị giác Links (visual directory)
+
+- **Thay đổi:** Thiết kế và triển khai bố cục hoàn chỉnh cho route `/links` dựa trên cấu trúc DOM-first ngữ nghĩa; tạo component tái sử dụng `DestinationCard` hỗ trợ phân biệt rõ ràng đích đến nội bộ (Next.js Link) và bên ngoài (`target="_blank"`, `rel="noreferrer noopener"`, nhãn phân biệt có chỉ báo trực quan và văn bản trợ năng) mà không phụ thuộc vào hover; tạo `LinksHeader` với tiêu đề chính H1 và nội dung định hướng; xây dựng `LinksDirectory` đọc nguồn dữ liệu chuẩn `linkDestinations` và tự động thích ứng với 0, ít hoặc nhiều liên kết; thiết kế `LinksEmptyState` tinh tế và liền mạch khi dataset chưa có liên kết nào được phê duyệt; đảm bảo bố cục co giãn mượt mà giữa mobile (375px) và desktop (1280px) không tràn viền ngang; hỗ trợ điều hướng bàn phím Tab với vòng focus rõ ràng và đạt chuẩn tương tác chạm tối thiểu 44px.
+- **Tệp:** `src/components/ui/destination-card.tsx`, `src/components/sections/links/links-header.tsx`, `src/components/sections/links/links-empty-state.tsx`, `src/components/sections/links/links-directory.tsx`, `src/app/links/page.tsx`, `TASKS.md`, `docs/CHANGELOG.md`
+- **Kiểm tra:** `npm run build` thành công; `npx eslint src/` không có lỗi; kiểm tra thực tế bằng trình duyệt subagent xác nhận `/links` trả HTTP 200, hiển thị trạng thái empty state chuẩn mực và điều hướng Tab/skip-link hoạt động tốt; kiểm tra giả lập dữ liệu xác nhận thẻ hiển thị chuẩn, phân biệt nội bộ/ngoài trực quan và co giãn tốt trên mobile 375px mà không bị tràn ngang; khôi phục nguồn dữ liệu chuẩn về trạng thái rỗng không tự ý tạo liên kết giả; không thêm GSAP, Three.js hay dependency mới. `npm run lint` còn lỗi có sẵn trong `.agents/skills/**`.
+
