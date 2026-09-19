@@ -20,3 +20,10 @@ export function getExperimentHref(experiment: LabExperiment): string {
 export function isExperimentOpenable(experiment: LabExperiment): boolean {
   return experiment.status === "active" || experiment.status === "prototype";
 }
+
+/**
+ * Resolve metadata without coupling the content registry to React modules.
+ */
+export function getExperimentBySlug(slug: string): LabExperiment | undefined {
+  return labExperiments.find((experiment) => experiment.slug === slug);
+}

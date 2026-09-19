@@ -106,7 +106,7 @@
   - Deliverables: Typed experiment registry and `/lab` index.
   - Acceptance: New experiments can be registered without changing the site shell or unrelated routes.
 
-- [ ] **TASK-014 — Establish isolated experiment entry pattern**
+- [x] **TASK-014 — Establish isolated experiment entry pattern**
   - Goal: Define the route/component boundary used by individual experiments.
   - Read: `docs/ARCHITECTURE.md` §5-9.
   - Skills: `vercel-react-best-practices`, `gsap-performance`.

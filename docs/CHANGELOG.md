@@ -74,5 +74,10 @@
 - **Tệp:** `src/types/content.ts`, `src/content/lab/index.ts`, `src/components/sections/lab/lab-header.tsx`, `src/components/sections/lab/lab-empty-state.tsx`, `src/components/sections/lab/lab-experiment-card.tsx`, `src/components/sections/lab/lab-registry.tsx`, `src/app/lab/page.tsx`, `TASKS.md`, `docs/CHANGELOG.md`
 - **Kiểm tra:** `npm run build` thành công, các route được prerender tĩnh; `npx eslint` có mục tiêu đạt 0 lỗi; kiểm tra thực tế bằng trình duyệt subagent tại các độ phân giải 375x700 và 1280x800 xác nhận không tràn viền ngang, H1 chuẩn ngữ nghĩa, banner trạng thái và 4 khối định hướng hiển thị rõ ràng, phím Tab và skip-link hoạt động tốt; kiểm tra giả lập dữ liệu xác nhận thẻ hiển thị và phân loại đúng trạng thái trước khi khôi phục về mảng rỗng; không thêm dependency mới.
 
+## 2026-09-19 — TASK-014: Thiết lập ranh giới route cô lập cho Lab experiment
+
+- **Thay đổi:** Tạo route động `/lab/[slug]` phân giải metadata từ registry Lab thẩm quyền, mapping implementation kiểu tường minh chỉ được route experiment sử dụng, cùng `ExperimentFrame`; bổ sung loading, not-found và error boundary cục bộ; giữ registry rỗng, không tạo experiment giả và không đưa mã nặng vào `/lab` hoặc site shell.
+- **Tệp:** `src/app/lab/[slug]/page.tsx`, `src/app/lab/[slug]/loading.tsx`, `src/app/lab/[slug]/not-found.tsx`, `src/app/lab/[slug]/error.tsx`, `src/components/lab/experiment-frame.tsx`, `src/content/lab/index.ts`, `src/experiments/index.ts`, `TASKS.md`, `docs/CHANGELOG.md`
+- **Kiểm tra:** `npm run build` thành công; ESLint có mục tiêu cho các tệp sửa đổi không có lỗi; `/lab` trả HTTP 200; slug chưa đăng ký đi qua not-found boundary cục bộ với `noindex`; không thêm dependency, không thêm GSAP/Three.js/shader experiment.
 
 
