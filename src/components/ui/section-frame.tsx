@@ -1,7 +1,7 @@
-import type { ElementType, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 type SectionFrameProps = {
-  as?: ElementType;
+  as?: "section" | "div" | "article" | "aside";
   id?: string;
   className?: string;
   children: ReactNode;

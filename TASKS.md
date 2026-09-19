@@ -67,7 +67,7 @@
   - Deliverables: Route-scoped motion with cleanup and reduced-motion behavior.
   - Acceptance: Motion enhances hierarchy, does not block navigation, and fully respects reduced-motion preference.
 
-- [ ] **TASK-009 — Add optional Home Three.js enhancement**
+- [x] **TASK-009 — Add optional Home Three.js enhancement**
   - Goal: Introduce one approved, route-scoped 3D enhancement without making Home dependent on WebGL.
   - Read: `docs/ARCHITECTURE.md` §6-9, `docs/DESIGN_SYSTEM.md` §9, §14.
   - Skills: `threejs-fundamentals`, `threejs-interaction`, `threejs-lighting`, `threejs-materials`, `threejs-loaders`.

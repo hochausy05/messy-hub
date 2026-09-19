@@ -1,4 +1,5 @@
 import { SectionFrame } from "@/src/components/ui/section-frame";
+import { HomeCanvasBoundary } from "@/src/components/three/canvas/home-canvas-boundary";
 
 export function HomeHero() {
   return (
@@ -65,7 +66,15 @@ export function HomeHero() {
             <span>Index 01&ndash;03</span>
           </div>
 
-          <dl className="mt-4 space-y-3.5 text-sm">
+          {/* 3D Hub Topology Viewport */}
+          <div
+            className="relative my-4 h-40 w-full overflow-hidden rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-base)] sm:h-48"
+            aria-hidden="true"
+          >
+            <HomeCanvasBoundary />
+          </div>
+
+          <dl className="space-y-3 text-sm">
             <div className="flex items-baseline justify-between gap-4">
               <dt className="font-medium text-[var(--text-primary)]">Links</dt>
               <dd className="text-right text-xs text-[var(--text-muted)]">
