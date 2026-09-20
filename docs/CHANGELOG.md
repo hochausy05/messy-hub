@@ -132,3 +132,9 @@
 - **Kết quả:** Tất cả route render đúng; Profile vẫn giữ nguyên tên `messy`, tiểu sử đã duyệt và danh sách liên kết rỗng; Lab chỉ có Kinetic Focus Grid và Spatial Node Field. Home Three.js, fallback WebGL, giảm chuyển động và các chunk thử nghiệm độc lập vẫn nguyên vẹn; `/links` rỗng không tải runtime GSAP; kiểm tra desktop đạt và kết quả mobile 375px từ TASK-019 vẫn không bị ảnh hưởng vì không có thay đổi bố cục.
 - **Kiểm tra:** `npm run build`, `npm run lint -- src` và `git diff --check` đều đạt; production server trả phản hồi thành công cho toàn bộ route, trạng thái Lab không tồn tại hiển thị an toàn, luồng hồi quy hoàn tất và không ghi nhận lỗi ứng dụng/hydration. Baseline kỹ thuật MVP hiện đã hoàn chỉnh.
 - **Tệp:** `public/file.svg`, `public/globe.svg`, `public/next.svg`, `public/vercel.svg`, `public/window.svg`, `src/app/favicon.ico`, `TASKS.md`, `docs/CHANGELOG.md`.
+
+## 2026-09-20 — TASK-022
+
+- **Phạm vi & Thay đổi:** Hoàn thành tài liệu khái niệm thị giác (visual concept) thẩm quyền cho giai đoạn World Journey tại `docs/design/WORLD_JOURNEY.md`. Chốt hướng nghệ thuật chủ đạo Stylized Cinematic Nature cho hành trình cuộn liên tục qua sáu chapter: Orbit → Atmosphere → Primeval Forest → Crystal Cave → Living Ocean → Abyss; chốt chuyển tiếp đặc trưng Cave → Ocean dịch chuyển không gian/camera theo chiều ngang dựa trên thao tác cuộn dọc thông thường của người dùng; xác lập ranh giới Three.js chịu trách nhiệm không gian/khí quyển và DOM đảm bảo ngữ nghĩa nội dung, điều hướng, khả năng tiếp cận; phân tách rõ ràng quyết định đã duyệt (APPROVED) và các chi tiết kỹ thuật/shader/asset chờ triển khai (TBD).
+- **Mã nguồn & Phụ thuộc:** Không thay đổi mã nguồn sản phẩm (production code), không thay đổi giao diện ứng dụng và không bổ sung dependency.
+- **Tệp:** `docs/design/WORLD_JOURNEY.md`, `TASKS.md`, `docs/CHANGELOG.md`.

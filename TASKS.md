@@ -175,3 +175,116 @@ No actionable MVP checkboxes are created for:
 - database / authentication / CMS / analytics
 
 Add future tasks only after scope is explicitly approved.
+
+## Phase 6 — World Journey Direction & Foundation
+
+- [x] **TASK-022 — Define World Journey visual concept**
+  - Goal: Chốt art direction cho hành trình Three.js từ ngoài không gian xuống đáy biển sâu và xác định vai trò của từng chapter.
+  - Read: `docs/DESIGN_SYSTEM.md`
+  - Skills: `design`, `design-system`, `web-design-guidelines`
+  - Deliverables: Tài liệu ngắn `docs/design/WORLD_JOURNEY.md` xác định chapter, mood, palette direction, scale, lighting intent, transition intent và ranh giới DOM/Three.js.
+  - Acceptance: Có một visual direction thống nhất cho Space → Atmosphere → Forest → Crystal Cave → Ocean → Abyss; không còn mơ hồ về vai trò từng vùng; chưa triển khai Three.js production.
+
+- [ ] **TASK-023 — Define World Journey technical architecture**
+  - Goal: Chốt kiến trúc scrollytelling trước khi sản xuất scene nặng.
+  - Read: `docs/design/WORLD_JOURNEY.md`, `docs/ARCHITECTURE.md`
+  - Skills: `vercel-react-best-practices`, `gsap-scrolltrigger`, `gsap-performance`, `threejs-fundamentals`
+  - Deliverables: Kiến trúc camera/scroll, scene ownership, loading strategy, vertical/horizontal transition model, asset boundaries và performance budget.
+  - Acceptance: Xác định rõ Canvas ownership, camera path, ScrollTrigger ownership, chapter lifecycle, mobile strategy, reduced-motion strategy và giới hạn GPU/asset trước khi dựng world thật.
+
+- [ ] **TASK-024 — Build end-to-end World Journey greybox**
+  - Goal: Dựng prototype toàn hành trình bằng geometry đơn giản để kiểm chứng scroll, camera và chuyển chapter.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture từ TASK-023
+  - Skills: `threejs-fundamentals`, `threejs-animation`, `threejs-interaction`, `gsap-core`, `gsap-scrolltrigger`, `gsap-performance`
+  - Deliverables: Greybox Space → Atmosphere → Surface → Cave → horizontal Ocean transition → Abyss.
+  - Acceptance: Có thể cuộn xuyên suốt hành trình; camera path ổn định; chuyển dọc/ngang hoạt động; DOM không bị khóa; chưa dùng asset/model/shader production.
+
+- [ ] **TASK-025 — Establish world asset and style pipeline**
+  - Goal: Chuẩn hóa asset trước khi dựng từng biome để tránh lệch style và quá tải tài nguyên.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `threejs-loaders`, `threejs-textures`, `threejs-materials`
+  - Deliverables: Quy ước asset, format, texture budget, model budget, naming, reuse strategy, LOD/instancing rules và nguồn asset được phép dùng.
+  - Acceptance: Có pipeline thống nhất cho model/texture/environment; không cần thay đổi quy trình asset khi bắt đầu các biome production.
+
+## Phase 7 — World Journey Biome Production
+
+- [ ] **TASK-026 — Build Outer Space chapter**
+  - Goal: Xây chapter mở đầu ngoài không gian với Trái Đất và cảm giác quy mô vĩ mô.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `threejs-fundamentals`, `threejs-materials`, `threejs-lighting`, `threejs-textures`
+  - Deliverables: Earth/orbit composition, star depth, atmospheric rim và camera framing production-ready.
+  - Acceptance: Opening scene có scale lớn, hoạt động responsive và chuyển tiếp được xuống Atmosphere mà không phá scroll architecture.
+
+- [ ] **TASK-027 — Build Atmosphere and Sky descent**
+  - Goal: Tạo quá trình đi xuyên khí quyển từ không gian xuống bầu trời.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `threejs-materials`, `threejs-lighting`, `threejs-animation`, `gsap-scrolltrigger`
+  - Deliverables: Atmospheric transition, clouds/sky depth, lighting shift và descent choreography.
+  - Acceptance: Space → Sky chuyển liên tục, không có cut gắt, không che DOM và không tạo scroll-jank.
+
+- [ ] **TASK-028 — Build Primeval Forest and Surface chapter**
+  - Goal: Xây vùng mặt đất gồm rừng nguyên sinh, hồ/suối và không gian thiên nhiên sống động.
+  - Read: `docs/design/WORLD_JOURNEY.md`, asset pipeline
+  - Skills: `threejs-loaders`, `threejs-textures`, `threejs-materials`, `threejs-lighting`, `threejs-animation`
+  - Deliverables: Terrain/surface composition, vegetation system, water elements, environmental depth và restrained ambient movement.
+  - Acceptance: Forest có chiều sâu và sức sống nhưng vẫn nằm trong performance budget; không cần hyper-real asset density.
+
+- [ ] **TASK-029 — Build Crystal Cave chapter**
+  - Goal: Xây hệ hang động dưới lòng đất với pha lê phát sáng, đá và rêu xanh.
+  - Read: `docs/design/WORLD_JOURNEY.md`, asset pipeline
+  - Skills: `threejs-materials`, `threejs-lighting`, `threejs-textures`, `threejs-loaders`
+  - Deliverables: Cave geometry, crystal clusters, moss/rock environment và emissive/local-light treatment.
+  - Acceptance: Cave có mood riêng nhưng vẫn cùng art direction; crystal lighting không gây chi phí GPU quá mức.
+
+- [ ] **TASK-030 — Build Cave-to-Ocean horizontal transition**
+  - Goal: Xây cú chuyển hướng đặc trưng từ hành trình dọc trong hang sang hành trình ngang ra đại dương.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `gsap-core`, `gsap-scrolltrigger`, `gsap-performance`, `threejs-animation`
+  - Deliverables: Camera/path transition dọc → ngang, cave exit, ocean reveal và DOM-scroll coordination.
+  - Acceptance: Chuyển ngang có chủ đích, không scroll-jack khó chịu, có thể thoát/re-enter ổn định và reduced-motion có phương án đơn giản hơn.
+
+- [ ] **TASK-031 — Build Ocean ecosystem chapter**
+  - Goal: Xây vùng đại dương với đáy biển, thực vật, đàn cá và sinh vật lớn ở nhiều tầng sâu.
+  - Read: `docs/design/WORLD_JOURNEY.md`, asset pipeline
+  - Skills: `threejs-loaders`, `threejs-animation`, `threejs-materials`, `threejs-lighting`, `threejs-textures`
+  - Deliverables: Ocean environment, fish schools, large-creature silhouettes/whale presence, vegetation and depth layers.
+  - Acceptance: Đại dương có cảm giác rộng và sống động; sinh vật không gây object-count/render-loop quá lớn; interaction không cản scroll.
+
+- [ ] **TASK-032 — Build Deep Sea Abyss ending**
+  - Goal: Xây chapter cuối ở biển sâu tối đen và tạo ending mạnh cho hành trình.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `threejs-materials`, `threejs-lighting`, `threejs-animation`
+  - Deliverables: Abyss environment, sparse bioluminescent details, depth/fog treatment và final resting composition.
+  - Acceptance: Ending có cảm giác sâu, yên và vĩ mô; không cần object density cao; cuối trang có trạng thái ổn định thay vì scene chuyển động vô hạn.
+
+## Phase 8 — Content & Visual Integration
+
+- [ ] **TASK-033 — Integrate site content into World Journey**
+  - Goal: Gắn nội dung thật của Messy Hub vào các chapter mà không biến Three.js thành hệ thống navigation duy nhất.
+  - Read: `docs/PRD.md`, `docs/design/WORLD_JOURNEY.md`, `docs/DESIGN_SYSTEM.md`
+  - Skills: `design`, `ui-styling`, `web-design-guidelines`, `vercel-react-best-practices`
+  - Deliverables: DOM content mapping, chapter copy, Links/Lab/Profile entry points và route transitions.
+  - Acceptance: Nội dung chính vẫn semantic DOM; mỗi chapter có vai trò rõ ràng; site vẫn usable nếu WebGL bị vô hiệu hóa.
+
+- [ ] **TASK-034 — Advanced materials, shaders and cinematic polish**
+  - Goal: Nâng chất lượng hình ảnh sau khi toàn bộ world đã ổn định.
+  - Read: `docs/design/WORLD_JOURNEY.md`, World Journey architecture
+  - Skills: `threejs-shaders`, `threejs-materials`, `threejs-lighting`, `threejs-postprocessing`, `threejs-textures`
+  - Deliverables: Shader/material polish, atmosphere/fog, water/crystal treatment, restrained postprocessing và chapter color grading.
+  - Acceptance: Hiệu ứng chỉ được thêm khi tạo khác biệt rõ ràng; không phá performance budget; mỗi effect có fallback hoặc degraded state hợp lý.
+
+## Phase 9 — Adaptation & Release
+
+- [ ] **TASK-035 — Adapt World Journey for mobile, reduced motion and fallback**
+  - Goal: Tạo phiên bản trải nghiệm phù hợp cho thiết bị yếu và người dùng giảm chuyển động.
+  - Read: `docs/design/WORLD_JOURNEY.md`, `docs/DESIGN_SYSTEM.md`, World Journey architecture
+  - Skills: `threejs-fundamentals`, `threejs-animation`, `gsap-performance`, `web-design-guidelines`
+  - Deliverables: Mobile camera/framing, reduced scene complexity, reduced-motion path và non-WebGL fallback.
+  - Acceptance: Mobile không chỉ là desktop thu nhỏ; native scrolling ổn định; reduced-motion không chạy choreography nặng; nội dung vẫn hoàn chỉnh khi WebGL không khả dụng.
+
+- [ ] **TASK-036 — World Journey performance and production release audit**
+  - Goal: Chốt production baseline mới sau khi World Journey hoàn thiện.
+  - Read: World Journey architecture, `docs/ARCHITECTURE.md`
+  - Skills: `vercel-react-best-practices`, `gsap-performance`, relevant `threejs-*`
+  - Deliverables: Bundle/GPU/memory/lifecycle audit, asset audit, production build, route regression và final fixes.
+  - Acceptance: Production build pass; không Canvas/listener/timeline leak; asset/code route-scoped; mobile/desktop stable; fallback hoạt động; không có release-blocking runtime/hydration error.
