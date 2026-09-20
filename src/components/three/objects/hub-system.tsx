@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 import { useReducedMotion } from "@/src/hooks/use-reduced-motion";
@@ -16,6 +16,31 @@ const SATELLITE_NODES: readonly [number, number, number][] = [
 export function HubSystem() {
   const groupRef = useRef<THREE.Group>(null);
   const reducedMotion = useReducedMotion();
+  const invalidate = useThree((state) => state.invalidate);
+  const canvas = useThree((state) => state.gl.domElement);
+  const isVisible = useRef(true);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (!document.hidden && isVisible.current) invalidate();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible.current = entry.isIntersecting;
+      if (entry.isIntersecting && !document.hidden) invalidate();
+    });
+
+    observer.observe(canvas);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, [canvas, invalidate]);
+
+  useEffect(() => {
+    invalidate();
+  }, [invalidate, reducedMotion]);
 
   // Pre-generate connection line geometry between hub core and satellite nodes
   const connectionGeometry = useMemo(() => {
@@ -38,6 +63,7 @@ export function HubSystem() {
 
   useFrame((state, delta) => {
     if (!groupRef.current) return;
+    if (!isVisible.current || document.hidden) return;
 
     if (reducedMotion) {
       // Static, stable presentation for reduced-motion users
@@ -65,6 +91,9 @@ export function HubSystem() {
       2.5,
       delta
     );
+
+    // Demand rendering continues only while the visible scene is animated.
+    state.invalidate();
   });
 
   return (

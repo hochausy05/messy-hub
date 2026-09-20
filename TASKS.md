@@ -152,7 +152,7 @@
   - Deliverables: Fixes for discovered MVP accessibility/responsive issues.
   - Acceptance: Primary flows work by keyboard/touch, focus is visible, no essential hover-only interactions remain, and layouts remain stable across target viewport classes.
 
-- [ ] **TASK-020 — Performance and enhancement fallback audit**
+- [x] **TASK-020 — Performance and enhancement fallback audit**
   - Goal: Validate motion/WebGL lifecycle, loading isolation, fallback behavior, and route-level performance.
   - Read: `docs/ARCHITECTURE.md` §6-9.
   - Skills: `vercel-react-best-practices`, `gsap-performance`, relevant `threejs-*` skills for affected scenes.

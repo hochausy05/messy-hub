@@ -40,17 +40,22 @@ function checkWebGLSupport(): boolean {
   if (typeof window === "undefined") return false;
   try {
     const canvas = document.createElement("canvas");
-    return Boolean(
-      window.WebGLRenderingContext &&
-        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
-    );
+    const context = canvas.getContext("webgl2");
+    if (!context) return false;
+
+    // The capability probe must not retain an extra GPU context.
+    context.getExtension("WEBGL_lose_context")?.loseContext();
+    return true;
   } catch {
     return false;
   }
 }
 
 export function HomeCanvasBoundary() {
-  const [CanvasComponent, setCanvasComponent] = useState<ComponentType | null>(null);
+  const [CanvasComponent, setCanvasComponent] = useState<
+    ComponentType<{ onContextLost?: () => void }> | null
+  >(null);
+  const [hasRuntimeFailure, setHasRuntimeFailure] = useState(false);
 
   useEffect(() => {
     if (!checkWebGLSupport()) return;
@@ -71,13 +76,13 @@ export function HomeCanvasBoundary() {
     };
   }, []);
 
-  if (!CanvasComponent) {
+  if (!CanvasComponent || hasRuntimeFailure) {
     return <HomeCanvasFallback />;
   }
 
   return (
     <CanvasErrorBoundary fallback={<HomeCanvasFallback />}>
-      <CanvasComponent />
+      <CanvasComponent onContextLost={() => setHasRuntimeFailure(true)} />
     </CanvasErrorBoundary>
   );
 }

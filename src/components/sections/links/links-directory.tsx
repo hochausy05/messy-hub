@@ -1,4 +1,4 @@
-import { DestinationCard } from "@/src/components/ui/destination-card";
+import { DestinationCardEntry } from "@/src/components/ui/destination-card-entry";
 import { LinksEmptyState } from "./links-empty-state";
 import { linkDestinations } from "@/src/content/links";
 import type { LinkDestination } from "@/src/types/content";
@@ -30,7 +30,7 @@ export function LinksDirectory() {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {approvedDestinations.map((destination) => (
-          <DestinationCard key={destination.id} destination={destination} />
+          <DestinationCardEntry key={destination.id} destination={destination} />
         ))}
       </div>
     </section>
