@@ -38,9 +38,9 @@ export function ExperimentFrame({
           ) : null}
         </header>
 
-        <main aria-label={`${experiment.title} experiment`} className="min-w-0">
+        <div className="min-w-0">
           {children}
-        </main>
+        </div>
       </div>
     </div>
   );

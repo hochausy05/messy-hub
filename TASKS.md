@@ -145,7 +145,7 @@
 
 ## Phase 5 — Quality & Release
 
-- [ ] **TASK-019 — Cross-route accessibility and responsive audit**
+- [x] **TASK-019 — Cross-route accessibility and responsive audit**
   - Goal: Validate all MVP routes across keyboard, touch, viewport, and reduced-motion modes.
   - Read: `docs/PRD.md` §13-14, `docs/DESIGN_SYSTEM.md` §12.
   - Skills: `web-design-guidelines`.

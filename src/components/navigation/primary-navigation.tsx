@@ -16,7 +16,8 @@ export function PrimaryNavigation() {
     <nav aria-label="Primary navigation">
       <ul className="primary-navigation__list">
         {primaryNavigationItems.map(({ href, label }) => {
-          const isCurrent = pathname === href;
+          const isCurrent =
+            pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
 
           return (
             <li key={href}>

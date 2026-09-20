@@ -26,6 +26,9 @@ export function HomeMotionWrapper({ children }: HomeMotionWrapperProps) {
 
       // 1. Choreographed entrance sequence for users with no motion reduction preference
       mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const container = containerRef.current;
+        if (!container) return;
+
         const tl = gsap.timeline({
           defaults: {
             ease: MOTION_EASINGS.entrance,
@@ -111,6 +114,11 @@ export function HomeMotionWrapper({ children }: HomeMotionWrapperProps) {
             },
             "-=0.2"
           );
+
+        const revealForKeyboard = () => tl.progress(1);
+        container.addEventListener("focusin", revealForKeyboard, { once: true });
+
+        return () => container.removeEventListener("focusin", revealForKeyboard);
       });
 
       // 2. Subtle interactive card lift for fine pointer / keyboard focus devices

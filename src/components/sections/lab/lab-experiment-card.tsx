@@ -103,7 +103,7 @@ export function LabExperimentCard({
     </div>
   );
 
-  const containerClasses = `group flex flex-col rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)]/80 transition-all duration-200 ${className}`;
+  const containerClasses = `group flex flex-col rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)]/80 transition-colors duration-200 ${className}`;
 
   if (isOpenable) {
     return (
