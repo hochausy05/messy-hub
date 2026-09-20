@@ -185,7 +185,7 @@ Add future tasks only after scope is explicitly approved.
   - Deliverables: Tài liệu ngắn `docs/design/WORLD_JOURNEY.md` xác định chapter, mood, palette direction, scale, lighting intent, transition intent và ranh giới DOM/Three.js.
   - Acceptance: Có một visual direction thống nhất cho Space → Atmosphere → Forest → Crystal Cave → Ocean → Abyss; không còn mơ hồ về vai trò từng vùng; chưa triển khai Three.js production.
 
-- [ ] **TASK-023 — Define World Journey technical architecture**
+- [x] **TASK-023 — Define World Journey technical architecture**
   - Goal: Chốt kiến trúc scrollytelling trước khi sản xuất scene nặng.
   - Read: `docs/design/WORLD_JOURNEY.md`, `docs/ARCHITECTURE.md`
   - Skills: `vercel-react-best-practices`, `gsap-scrolltrigger`, `gsap-performance`, `threejs-fundamentals`
