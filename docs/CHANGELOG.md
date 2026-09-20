@@ -95,3 +95,8 @@
 - **Kiểm tra tự động:** `npm run build` và ESLint có mục tiêu trên toàn bộ mã nguồn `src/` đạt 0 lỗi, 0 cảnh báo; toàn bộ các route trả về HTTP 200; kiểm tra bundle xác nhận `/lab` không tải mã thử nghiệm, `/lab/kinetic-focus-grid` chỉ nạp chunk của Kinetic Focus Grid và `/lab/spatial-node-field` chỉ nạp chunk của Spatial Node Field; kiểm tra trình duyệt qua subagent xác nhận phản hồi con trỏ mượt mà, bố cục co giãn tốt trên 375px/desktop không tràn viền ngang, điều hướng vòng lặp chuyển đổi giữa các thử nghiệm và dọn dẹp canvas/context WebGL hoàn toàn sạch sẽ, không lỗi console hay hydration.
 - **Chủ sở hữu xác nhận thủ công:** Trên thiết bị cảm ứng ở độ rộng mobile, cuộn trang native hoạt động bình thường, Canvas không chiếm quyền cuộn, không kẹt trạng thái hover giả lập, không tràn ngang và khung cảnh ổn định. Với `prefers-reduced-motion: reduce` từ hệ điều hành, toàn bộ chuyển động không gian theo con trỏ và chuyển động liên tục được vô hiệu hóa, camera giữ nguyên vị trí, khung cảnh tĩnh hiển thị trực quan và nhãn gợi ý giảm chuyển động hiển thị chính xác.
 
+## 2026-09-20 — TASK-017
+
+- **Thay đổi:** Hoàn thiện mô hình nội dung Profile kiểu hóa, gọn và độc lập với phần trình bày; bổ sung cấu trúc liên kết nội bộ/bên ngoài có mã ổn định. Nguồn nội dung thẩm quyền nằm tại `src/content/profile/index.ts` và hiện được chủ ý giữ trống vì chưa có thông tin cá nhân nào được chủ sở hữu phê duyệt.
+- **Tệp:** `src/types/content.ts`, `src/content/profile/index.ts`, `TASKS.md`, `docs/CHANGELOG.md`.
+- **Kiểm tra:** `npm run build` và ESLint có mục tiêu trên các tệp nguồn đã sửa đều đạt; các route `/`, `/links`, `/lab` và `/profile` đều trả về HTTP 200; không thêm dependency, dữ liệu cá nhân hay liên kết giả.

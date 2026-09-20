@@ -37,8 +37,15 @@ export type LabExperiment = {
   href?: string;
 };
 
+export type ProfileLink = {
+  id: string;
+  label: string;
+  href: string;
+  kind: "internal" | "external";
+};
 
 export type ProfileContent = {
   displayName?: string;
   bio?: string;
+  links?: readonly ProfileLink[];
 };

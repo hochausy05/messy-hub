@@ -129,7 +129,7 @@
 
 ## Phase 4 — Profile
 
-- [ ] **TASK-017 — Add approved Profile content model**
+- [x] **TASK-017 — Add approved Profile content model**
   - Goal: Prepare profile content using only owner-provided information.
   - Read: `docs/PRD.md` §8 Profile, `docs/ARCHITECTURE.md` §10.
   - Skills: `vercel-react-best-practices`.
