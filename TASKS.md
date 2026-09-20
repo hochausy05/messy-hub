@@ -159,7 +159,7 @@
   - Deliverables: Performance/fallback fixes and cleanup.
   - Acceptance: Heavy visual code is route-scoped; inactive scenes/animations stop; core content remains usable when enhancements are reduced/unavailable.
 
-- [ ] **TASK-021 — Production build and MVP release baseline**
+- [x] **TASK-021 — Production build and MVP release baseline**
   - Goal: Verify the MVP can build and run as a coherent production application.
   - Read: `PLAN.md` Phase 5, `docs/PRD.md` §22.
   - Skills: `vercel-react-best-practices`.
