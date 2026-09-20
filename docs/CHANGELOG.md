@@ -100,3 +100,11 @@
 - **Thay đổi:** Hoàn thiện mô hình nội dung Profile kiểu hóa, gọn và độc lập với phần trình bày; bổ sung cấu trúc liên kết nội bộ/bên ngoài có mã ổn định. Nguồn nội dung thẩm quyền nằm tại `src/content/profile/index.ts` và hiện được chủ ý giữ trống vì chưa có thông tin cá nhân nào được chủ sở hữu phê duyệt.
 - **Tệp:** `src/types/content.ts`, `src/content/profile/index.ts`, `TASKS.md`, `docs/CHANGELOG.md`.
 - **Kiểm tra:** `npm run build` và ESLint có mục tiêu trên các tệp nguồn đã sửa đều đạt; các route `/`, `/links`, `/lab` và `/profile` đều trả về HTTP 200; không thêm dependency, dữ liệu cá nhân hay liên kết giả.
+
+## 2026-09-20 — TASK-018
+
+- **Thay đổi:** Bổ sung tên hiển thị và tiểu sử đã được chủ sở hữu phê duyệt vào nguồn `src/content/profile/index.ts`; xây dựng trang `/profile` tĩnh, điềm tĩnh và ưu tiên nội dung với khối giới thiệu cùng khung nhận diện chữ trừu tượng, không biến trang thành sơ yếu lý lịch.
+- **Thành phần:** Thêm `ProfileIntro` và `ProfileLinks`; khối liên kết tự động được lược bỏ hoàn toàn khi danh sách rỗng. Các liên kết Profile hiện vẫn rỗng vì chủ sở hữu chưa cung cấp.
+- **Khả dụng:** Bố cục một cột ở màn hình 375px và hai cột cân bằng ở 1280px, không tràn ngang; duy trì đúng một tiêu đề cấp một, cấu trúc ngữ nghĩa, liên kết bỏ qua nội dung, điều hướng bàn phím và trạng thái tập trung rõ ràng.
+- **Tệp:** `src/app/profile/page.tsx`, `src/content/profile/index.ts`, `src/components/sections/profile/profile-intro.tsx`, `src/components/sections/profile/profile-links.tsx`, `TASKS.md`, `docs/CHANGELOG.md`.
+- **Kiểm tra:** `npm run build`, ESLint có mục tiêu và rà soát giao diện theo hướng dẫn web đều đạt; kiểm thử trình duyệt xác nhận `/profile` cùng toàn bộ route hồi quy được yêu cầu trả về HTTP 200, không có lỗi console từ ứng dụng, không thêm GSAP, Three.js hay dependency mới.

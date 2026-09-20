@@ -136,7 +136,7 @@
   - Deliverables: Structured profile content/data with unresolved fields kept `TBD` or omitted.
   - Acceptance: No invented biography, achievements, links, or history.
 
-- [ ] **TASK-018 — Build Profile page**
+- [x] **TASK-018 — Build Profile page**
   - Goal: Create a calm, content-first profile experience consistent with the hub.
   - Read: `docs/DESIGN_SYSTEM.md` §5-7, §10 Profile.
   - Skills: `design`, `ui-styling`, `web-design-guidelines`, `vercel-react-best-practices`.
